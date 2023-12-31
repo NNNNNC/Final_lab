@@ -1,0 +1,35 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderly</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-n2TXO5VJRRq4xnqMZtSEBkVfDNl6x5/oip6Q6DBGLj5ncNA8CDLNSvXYCFhcflVmSPBY8VJoZ6Qjp2No7vx0lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <h1q class="app-name">Orderly</h1>
+        <!-- Add navigation links or other header content here -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'category-list' %}">Categories</a></li>
+                <li><a href="{% url 'product-list' %}">Products</a></li>
+                <li><a href="{% url 'order-list' %}">Orders</a></li>
+                <li><a href="{% url 'customer-list' %}">Customers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

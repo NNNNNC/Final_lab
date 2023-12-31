@@ -1,0 +1,13 @@
+<!-- review_form.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create a Review</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Review</button>
+  </form>
+  <a href="{% url 'product-detail' pk=product_id %}">Back to product details</a>
+{% endblock %}

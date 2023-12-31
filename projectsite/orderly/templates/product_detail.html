@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ product.name }}</h2>
+  
+  <p>{{ product.description }}</p>
+  
+  <!-- Display product image -->
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+
+  <!-- Display product price -->
+  <p>Price: ${{ product.price }}</p>
+
+  <h3>Reviews</h3>
+  {% for review in product.review_set.all %}
+    <p>{{ review.text }} - {{ review.author }} ({{ review.created_at }})</p>
+  {% empty %}
+    <p>No reviews yet.</p>
+  {% endfor %}
+
+  <a href="{% url 'review-create' product_id=product.pk %}">Add a review</a>
+{% endblock %}
