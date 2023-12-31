@@ -3,11 +3,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Create a Review</h2>
+<div id="form">
+  <h2 id="title-form">Create a Review</h2>
   <form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit Review</button>
+    <button type="submit" id="submit">Submit</button>
   </form>
-  <a href="{% url 'product-detail' pk=product_id %}">Back to product details</a>
+</div>
 {% endblock %}

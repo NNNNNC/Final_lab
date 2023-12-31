@@ -11,10 +11,14 @@
   <!-- Add more order details as needed -->
 
   <h3>Products</h3>
-  <ul>
+<ul>
+  {% if order.orderitem_set.all %}
     {% for item in order.orderitem_set.all %}
       <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.product.price }}</li>
     {% endfor %}
-  </ul>
+  {% else %}
+    <li>No items in the order</li>
+  {% endif %}
+</ul>
 {% endblock %}
 
